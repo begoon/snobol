@@ -1,4 +1,6 @@
-# snobol4
+# SNOBOL$
+
+[![build](https://github.com/begoon/snobol/actions/workflows/build.yaml/badge.svg)](https://github.com/begoon/snobol/actions/workflows/build.yaml)
 
 A SNOBOL4 interpreter written in TypeScript, running on [Bun](https://bun.sh).
 
