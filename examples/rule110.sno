@@ -1,0 +1,31 @@
+*   Wolfram's Rule 110 cellular automaton.
+*   GEN is a string of '0'/'1' cells. Each generation we slide a 3-cell
+*   window across a zero-padded copy and look up the next state in RULES.
+
+        RULES = '000=0,001=1,010=1,011=1,100=0,101=1,110=1,111=0'
+        GEN =   '0000000000000000000000000000001'
+        N = 30
+
+        OUTPUT = GEN
+        STEP = 0
+
+GENLOOP GE(STEP, N)                             :S(END)
+        STEP = STEP + 1
+
+*   Zero-pad both edges so the boundary cells have 3-cell windows too.
+        PADDED = '0' GEN '0'
+        NEW = ''
+        I = 0
+        LIMIT = SIZE(GEN)
+
+CELL    GE(I, LIMIT)                            :S(EMIT)
+        PADDED POS(I) LEN(3) . T
+        RULES T '=' LEN(1) . NB
+        NEW = NEW NB
+        I = I + 1
+        :(CELL)
+
+EMIT    GEN = NEW
+        OUTPUT = GEN
+        :(GENLOOP)
+END

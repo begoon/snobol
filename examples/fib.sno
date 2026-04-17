@@ -1,0 +1,19 @@
+*   First N Fibonacci numbers via an ARRAY, each cell indexed by I.
+
+        N = 15
+        FIB = ARRAY(N, 0)
+        FIB<1> = 1
+        FIB<2> = 1
+
+        I = 3
+LOOP    GT(I, N)                                :S(PRINT)
+        FIB<I> = FIB<I - 1> + FIB<I - 2>
+        I = I + 1
+        :(LOOP)
+
+PRINT   I = 1
+PLOOP   GT(I, N)                                :S(END)
+        OUTPUT = FIB<I>
+        I = I + 1
+        :(PLOOP)
+END

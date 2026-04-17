@@ -1,0 +1,6 @@
+*   count down from 5
+        N = 5
+LOOP    OUTPUT = N
+        N = N - 1
+        GT(N, 0)                :S(LOOP)
+END

@@ -1,0 +1,22 @@
+*   FizzBuzz from 1 to N, using integer modulo via I - K * (I / K).
+
+        N = 20
+        I = 1
+
+LOOP    GT(I, N)                                :S(END)
+
+*   Test 15 first so FizzBuzz wins over the other cases.
+        MOD15 = I - 15 * (I / 15)
+        EQ(MOD15, 0)                            :S(FIZZBUZZ)
+        MOD3 = I - 3 * (I / 3)
+        EQ(MOD3, 0)                             :S(FIZZ)
+        MOD5 = I - 5 * (I / 5)
+        EQ(MOD5, 0)                             :S(BUZZ)
+        OUTPUT = I                              :(NEXT)
+
+FIZZBUZZ OUTPUT = 'FizzBuzz'                    :(NEXT)
+FIZZ    OUTPUT = 'Fizz'                         :(NEXT)
+BUZZ    OUTPUT = 'Buzz'                         :(NEXT)
+
+NEXT    I = I + 1                               :(LOOP)
+END

@@ -1,0 +1,8 @@
+*   extract key=value pairs using conditional capture
+        LINE = 'name=Alice;age=30;city=Paris'
+NEXT    LINE BREAK('=') . K '=' BREAK(';') . V ';' = '' :F(LAST)
+        OUTPUT = K ' -> ' V
+        :(NEXT)
+LAST    LINE BREAK('=') . K '=' REM . V :F(END)
+        OUTPUT = K ' -> ' V
+END

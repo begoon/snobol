@@ -1,0 +1,19 @@
+*   Self-referential pattern: balanced parentheses.
+*   BAL -> '(' BAL ')' BAL | epsilon is the classic CFG for balanced parens.
+*   The trailing *BAL after ')' is what lets siblings like '()()' work.
+
+        BAL = '(' *BAL ')' *BAL | ''
+        &ANCHOR = 1
+
+        S = '((()()))'
+        S BAL RPOS(0)                           :S(OK1)F(NO1)
+OK1     OUTPUT = S ' is balanced'
+        :(T2)
+NO1     OUTPUT = S ' is NOT balanced'
+
+T2      S = '(()'
+        S BAL RPOS(0)                           :S(OK2)F(NO2)
+OK2     OUTPUT = S ' is balanced'
+        :(END)
+NO2     OUTPUT = S ' is NOT balanced'
+END

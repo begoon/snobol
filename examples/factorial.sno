@@ -1,0 +1,7 @@
+*   recursive factorial
+        DEFINE('FACT(N)')               :(PAST)
+FACT    LT(N, 2)                        :F(RECUR)
+        FACT = 1                        :(RETURN)
+RECUR   FACT = N * FACT(N - 1)          :(RETURN)
+PAST    OUTPUT = FACT(10)
+END

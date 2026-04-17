@@ -1,0 +1,5 @@
+*   Read each line from stdin, echo it back prefixed. Stops at EOF.
+READ    LINE = INPUT                            :F(END)
+        OUTPUT = '> ' LINE
+        :(READ)
+END

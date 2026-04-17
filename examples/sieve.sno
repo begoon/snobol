@@ -1,0 +1,30 @@
+*   Sieve of Eratosthenes. Prints primes up to N, one per line.
+*   SIEVE is a string; SIEVE[i] = '.' means i may still be prime,
+*   SIEVE[i] = 'x' means i is known composite.
+
+        N = 50
+        SIEVE = DUPL('.', N + 1)
+
+        I = 2
+OUTER   GT(I, N)                                :S(PRINT)
+        SIEVE POS(I) LEN(1) . C
+        LNE(C, '.')                             :S(NEXT)
+
+*   I is prime — cross off its multiples starting at 2*I
+        J = I + I
+MARK    GT(J, N)                                :S(NEXT)
+        SIEVE POS(J) LEN(1) = 'x'
+        J = J + I
+        :(MARK)
+
+NEXT    I = I + 1
+        :(OUTER)
+
+PRINT   I = 2
+PLOOP   GT(I, N)                                :S(END)
+        SIEVE POS(I) LEN(1) . C
+        LNE(C, '.')                             :S(SKIP)
+        OUTPUT = I
+SKIP    I = I + 1
+        :(PLOOP)
+END

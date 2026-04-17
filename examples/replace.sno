@@ -1,0 +1,5 @@
+*   demonstrate pattern match-replace: swap the first vowel with a star
+        LINE = 'hello world'
+        LINE ANY('aeiou') = '*'
+        OUTPUT = LINE
+END

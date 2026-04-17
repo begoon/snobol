@@ -1,0 +1,3 @@
+*   classic hello world
+        OUTPUT = 'HELLO, WORLD'
+END

@@ -1,0 +1,40 @@
+{
+    "name": "snobol",
+    "version": "0.1.1",
+    "description": "A SNOBOL4 interpreter written in TypeScript, running on Bun",
+    "type": "module",
+    "bin": {
+        "snobol": "./src/cli.ts"
+    },
+    "files": [
+        "src",
+        "examples",
+        "README.md",
+        "LICENSE"
+    ],
+    "engines": {
+        "bun": ">=1.0.0"
+    },
+    "keywords": [
+        "snobol",
+        "snobol4",
+        "interpreter",
+        "pattern-matching",
+        "language",
+        "bun"
+    ],
+    "license": "MIT",
+    "author": "Alexander Demin",
+    "scripts": {
+        "test": "bun test",
+        "typecheck": "tsc --noEmit",
+        "snobol": "bun src/cli.ts"
+    },
+    "devDependencies": {
+        "@types/bun": "latest",
+        "typescript": "^5.6.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
