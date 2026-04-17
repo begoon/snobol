@@ -8,26 +8,44 @@ SNOBOL4 is Griswold, Polonsky & Farber's 1967 string-processing language, best k
 
 ## Quick start
 
+The interpreter is published as [`snobol`](https://www.npmjs.com/package/snobol) on npm. Bun must be installed (it is the runtime).
+
+Run a program without installing:
+
 ```sh
+bunx snobol hello.sno
+# or
+npx snobol hello.sno
+```
+
+Install globally for repeat use:
+
+```sh
+bun  install -g snobol        # then:  snobol hello.sno
+npm  install -g snobol
+```
+
+Pipe stdin into a program that reads `INPUT`:
+
+```sh
+printf "one\ntwo\n" | bunx snobol echo.sno
+```
+
+A minimal program to try — save as `hello.sno`:
+
+```snobol
+        OUTPUT = 'HELLO, WORLD'
+END
+```
+
+### From a source checkout
+
+```sh
+git clone https://github.com/begoon/snobol
+cd snobol
 bun install
 bun src/cli.ts examples/hello.sno
-```
-
-```
-HELLO, WORLD
-```
-
-Programs read from stdin when something is piped:
-
-```sh
-echo "one
-two" | bun src/cli.ts examples/echo.sno
-```
-
-Run the test suite and typecheck together:
-
-```sh
-just ci
+just ci                             # typecheck + tests
 ```
 
 ## Example programs
