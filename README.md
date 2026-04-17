@@ -1,4 +1,4 @@
-# SNOBOL$
+# SNOBOL4
 
 [![build](https://github.com/begoon/snobol/actions/workflows/build.yaml/badge.svg)](https://github.com/begoon/snobol/actions/workflows/build.yaml)
 
